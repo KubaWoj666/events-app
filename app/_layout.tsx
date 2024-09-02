@@ -28,10 +28,20 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
+      <Stack
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#0f172a', // Kolor tła nagłówka
+          },
+         
+        }}
+      >
+        <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="modal" options={{ title: "Menu", headerBackTitle: "back", presentation: "card", headerTintColor: "white" }} />
         <Stack.Screen name="+not-found" />
       </Stack>
     </ThemeProvider>
   );
 }
+
