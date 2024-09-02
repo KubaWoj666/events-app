@@ -4,6 +4,7 @@ import React from 'react';
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -11,7 +12,10 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarStyle: {
+          backgroundColor: '#0f172a',
+        },
+        tabBarActiveTintColor: "yellow",
         headerShown: false,
       }}>
       
@@ -32,6 +36,16 @@ export default function TabLayout() {
           title: 'Profiles',
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name='person' color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="qrCode"
+        options={{
+          title: 'QR',
+          tabBarIcon: ({ color, focused }) => (
+            <MaterialCommunityIcons name="qrcode-scan" color={color} size={24} />
           ),
         }}
       />
